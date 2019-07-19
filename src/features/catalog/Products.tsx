@@ -1,5 +1,5 @@
 import * as React from "react";
-import { RouteComponentProps } from "@reach/router";
+import { RouteComponentProps, Link } from "@reach/router";
 import styled from "styled-components";
 import { AgGridReact } from "ag-grid-react";
 import { FormGroup, InputGroup, Button, Icon } from "@blueprintjs/core";
@@ -50,7 +50,9 @@ const onGridReady = (params: GridReadyEvent) => {
 };
 
 const Products: React.FC<IProductsProps> = props => {
-  const [columnDefs, setColumnDefs] = React.useState<(ColGroupDef | ColDef)[] | undefined>([
+  const [columnDefs, setColumnDefs] = React.useState<
+    (ColGroupDef | ColDef)[] | undefined
+  >([
     {
       suppressSizeToFit: true,
       width: 35,
@@ -208,7 +210,9 @@ const Products: React.FC<IProductsProps> = props => {
   return (
     <Container className="ag-theme-balham">
       <Add>
-        <Button intent="warning" text="Add" fill={true} />
+        <Link to="/catalog/products/add">
+          <Button intent="warning" text="Add" fill={true} />
+        </Link>
       </Add>
       <Grid>
         <div style={{ width: "100%" }} className="ag-theme-balham">
